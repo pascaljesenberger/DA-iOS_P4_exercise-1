@@ -48,7 +48,7 @@ Responsible of providing Data, by hiding where it comes from. In this project it
 
 1. Clone the repository to your local machine:
 ```shell
-git clone https://github.com/your-username/swiftui-todo-list.git
+git clone https://github.com/OpenClassrooms-Student-Center/DA-iOS_P4_exercise-1.git
 ```
 2. Open the project in Xcode.
 3. Build and run the project on your preferred simulator or physical device.
