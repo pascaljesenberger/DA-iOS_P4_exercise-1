@@ -13,7 +13,19 @@ struct ToDoListView: View {
         NavigationView {
             VStack {
                 // Filter selector
+                
                 // TODO: - Add a filter selector which will call the viewModel for updating the displayed data
+                Picker("Task Status", selection: $filterIndex) {
+                    Text("All").tag(0)
+                    Text("Done").tag(1)
+                    Text("Not done").tag(2)
+                }
+                .onChange(of: filterIndex) { selectedIndex in
+                    viewModel.applyFilter(at: selectedIndex)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
                 // List of tasks
                 List {
                     ForEach(viewModel.toDoItems) { item in
@@ -45,7 +57,7 @@ struct ToDoListView: View {
                     HStack {
                         TextField("Enter Task Title", text: $newTodoTitle)
                             .padding(.leading)
-
+                        
                         Spacer()
                         
                         Button(action: {
@@ -87,7 +99,7 @@ struct ToDoListView: View {
                         .shadow(radius: 5)
                 }
                 .padding()
-
+                
             }
             .navigationBarTitle("To-Do List")
             .navigationBarItems(trailing: EditButton())
